@@ -3,21 +3,40 @@ package main
 import "fmt"
 
 func main() {
+	// ARRAYS
+	// longhand: var arr [# of elements]data-type = [# of elements]data-type{data entries}
+	// shorthand: arr := [# of elements]data-type{data entries}
 
-	age := 34
-	name := "Abe"
-	score := 4.3
+	// var ages [3]int = [3]int{20, 25, 30}
+	//ages := [3]int{20, 25, 30}
+	names := [4]string{"yoshi", "mario", "peach", "bowser"}
+	fmt.Println(names, len(names))
 
-	// Println with variable outputs
-	fmt.Println("My age is", age, "and my name is", name+".")
+	// SLICES - dynamic array
+	// longhand: var slice = []data-type{data entries}
+	// shorthand: slice := []data-type{data entries}
+	var scores = []int{100, 50, 60}
+	scores[2] = 25
 
-	// Printf (formatted strings)
-	fmt.Printf("my age is %v and my name is %v.\n", age, name)
-	fmt.Printf("my age is %q and my name is %q.\n", age, name)
-	fmt.Printf("age is of type %T\n", age)
-	fmt.Printf("you scored %0.1f points!\n", score)
+	// APPEND - returns an array or slice with a new entry at the end, does not mutate
+	scores = append(scores, 85)
 
-	// Sprintf (Save Formatted Strings)
-	var str = fmt.Sprintf("my age is %v and my name is %v.\n", age, name)
-	fmt.Println(str)
+	fmt.Println(scores, len(scores))
+
+	// RANGES - gets the range of a slice or array, and stores it into a new slice
+
+	// returns element position 1 up to position 3 minus 1
+	rangeOne := names[1:3]
+	// returns element position 2 and up
+	rangeTwo := names[2:]
+	// return element position 0 to 3 minus 2
+	rangeThree := names[:3]
+
+	fmt.Println(rangeOne)
+	fmt.Println(rangeTwo)
+	fmt.Println(rangeThree)
+
+	rangeOne = append(rangeOne, "koopa")
+	fmt.Println(rangeOne)
+
 }
